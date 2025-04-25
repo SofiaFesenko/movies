@@ -9,9 +9,10 @@ function HomePage() {
     useEffect(() => {
         async function fetchMovies() {
             const response = await axios.get(
-                "https://api.themoviedb.org/3/trending/movie/day?api_key=ce1bdf60c90c5aff209d38216d693f24&language=uk-UKR"
+                "https://api.artic.edu/api/v1/artworks"
             );
-            setMovies(response.data.results)
+            
+            setMovies(response.data.data)
         }
 
         fetchMovies();
@@ -19,7 +20,7 @@ function HomePage() {
 
     return (
       <>
-        <h1>Сьогодні в тренді</h1>
+        <h1>Популярні картини</h1>
         <MovieList movie={movies}/>
       </>
     )

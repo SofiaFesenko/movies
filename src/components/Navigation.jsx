@@ -7,7 +7,7 @@ function Navigation() {
     return (
         <header className={css.linkblock}>
             <NavLink to="/" className={({ isActive }) => clsx(css.link, isActive && css.active)}>Головна</NavLink>
-            <NavLink to="/movies" className={({ isActive }) => clsx(css.link, isActive && css.active)} >Фільми</NavLink>
+            <NavLink to="/movies" className={({ isActive }) => clsx(css.link, isActive && css.active)} >Картини</NavLink>
         </header>  
   )
 }

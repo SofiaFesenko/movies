@@ -10,9 +10,9 @@ function MoviesReviews() {
     useEffect(() => {
         async function fetchSingleMovie() {
             const response = await axios.get(
-                `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=ce1bdf60c90c5aff209d38216d693f24&language=uk-UKR`
+                `https://api.artic.edu/api/v1/artworks/${movieId}`
             );
-            setReviews(response.data.results)
+            setReviews(response.data.data)
         }
 
         fetchSingleMovie();
@@ -31,7 +31,7 @@ function MoviesReviews() {
                 </li>
                 ))}
             </ul>
-           ) : <h3>Немає відгуків</h3>)}     
+           ) : <h3>{reviews.description}</h3>)}     
         </div>     
       </>
     )

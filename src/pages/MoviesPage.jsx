@@ -26,9 +26,9 @@ function MoviesPage() {
 
       async function fetchSingleMovie() {
           const response = await axios.get(
-              `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=ce1bdf60c90c5aff209d38216d693f24&language=uk-UKR`
-          );
-          setMovie(response.data.results)        
+              `https://api.artic.edu/api/v1/artworks/search?q=${query}`
+          );          
+          setMovie(response.data.data)        
       }
 
       fetchSingleMovie();

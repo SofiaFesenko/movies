@@ -9,9 +9,9 @@ function MoviesCast() {
     useEffect(() => {
         async function fetchSingleMovie() {
             const response = await axios.get(
-                `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=ce1bdf60c90c5aff209d38216d693f24&language=uk-UKR`
+                `https://api.artic.edu/api/v1/artworks/${movieId}`
             );
-            setCast(response.data.cast)          
+            setCast(response.data.data.classification_titles)          
         }
 
         fetchSingleMovie();
@@ -21,17 +21,16 @@ function MoviesCast() {
     return (
       <>
       <div>
-        {Array.isArray(cast) && cast.length > 0 && (
+        {cast && Object.entries(cast).length > 0 ? (
             <ul>
-                { cast.map((person) => (
-                <li key={person.id}>
-                    <img src={`https://image.tmdb.org/t/p/w200/${person.profile_path}`} alt="cast" />
-                    <p>{person.name}</p>
-                    <p>Персонаж: {person.character}</p>
+                { Object.entries(cast).map(([key, title]) => (
+                <li key={key}>
+                    {title}
                 </li>
                 ))}
-            </ul>
-        )}
+            </ul>)
+            : <h3>Класифікацій немає</h3>} 
+
       </div>    
       </>
     )
